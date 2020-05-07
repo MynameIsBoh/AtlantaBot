@@ -28,8 +28,10 @@ class Setafk extends Command {
         }
 
         // Send success message
-        message.channel.send(message.language.get("SETAFK_SUCCESS", reason));
-
+        //da uncommentare =  message.channel.send(message.language.get("SETAFK_SUCCESS", reason));
+        
+        message.channel.send("Sei Afk",reason);
+        
         data.userData.afk = reason;
         data.userData.save();
 

@@ -16,8 +16,8 @@ class Reload extends Command {
             memberPermissions: [],
             botPermissions: [],
             nsfw: false,
-            ownerOnly: true,
-            cooldown: 3000
+            ownerOnly: false,
+            cooldown: 1000
         });
     }
 

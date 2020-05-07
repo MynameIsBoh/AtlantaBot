@@ -15,7 +15,7 @@ class FindWords extends Command {
             dirname: __dirname,
             enabled: true,
             guildOnly: true,
-            aliases: [],
+            aliases: ["indovina"],
             memberPermissions: [],
             botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
             nsfw: false,
@@ -41,7 +41,8 @@ class FindWords extends Command {
 
         // Reads words file
         let arrWords = require("../../assets/json/"+message.language.getLang()+"_words.json");
-    
+        message.channel.send("Lingua:"+message.language.getLang());
+        
         // Init some utils variables
         let participants = [],
         winners = [],
@@ -63,7 +64,7 @@ class FindWords extends Command {
         function generegame(word){
     
             // Launch timer
-            let delay = (i === 0) ? 10000 : 0;
+            let delay = (i === 0) ? 5000 : 0;
             if(i === 0){
                 message.channel.send(message.language.get("FINDWORDS_TIMER"));
             }
@@ -108,10 +109,14 @@ class FindWords extends Command {
                         let time = message.language.convertMs(Date.now() - createdAt);
                         let user = await message.client.users.fetch(winnerID);
                         message.channel.send(message.language.get("FINDWORDS_STATS", user.username, nbGames, time, participants.length, participants.map((p) => "<@"+p+">").join("\n")));
+                        message.channel.send(message.language.get("FINDWORDS_MONEY", user.username));
+                            let userdata = await message.client.findOrCreateMember({ id: user.id, guildID: message.guild.id });
+                            userdata.money = userdata.money + 20;
+                            userdata.save();
                         if(participants.length > 1 && data.guild.disabledCategories && !data.guild.disabledCategories.includes("Economy")){
                             message.channel.send(message.language.get("FINDWORDS_MONEY", user.username));
                             let userdata = await message.client.findOrCreateMember({ id: user.id, guildID: message.guild.id });
-                            userdata.money = userdata.money + 15;
+                            userdata.money = userdata.money + 20;
                             userdata.save();
                         }
                     }

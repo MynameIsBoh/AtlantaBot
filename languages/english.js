@@ -1560,9 +1560,9 @@ module.exports = class {
 			// Utils
 			SETLANG_DESCRIPTION: "Change the server language!",
 			SETLANG_USAGE: "setlang [french/english]",
-			SETLANG_EXAMPLES: "$setlang french\n$setlang english",
+			SETLANG_EXAMPLES: "$setlang italiano\n$setlang english",
 			// Errors
-			SETLANG_ERR_LANG: `${e.error} | Please enter a valid language (\`french\` or \`english\`) !`,
+			SETLANG_ERR_LANG: `${e.error} | Please enter a valid language (\`italiano\` or \`english\`) !`,
 			// Content
 			SETLANG_LANGS:[
 				":flag_fr: | La langue de ce serveur est maintenant le Français !",

@@ -69,7 +69,7 @@ class Number extends Command {
                 if(data.guild.disabledCategories && !data.guild.disabledCategories.includes("Economy")){
                     message.channel.send(message.language.get("NUMBER_CONGRATS", msg.author.id));
                     let userdata = await message.client.findOrCreateMember({ id: msg.author.id, guildID: message.guild.id });
-                    userdata.money = userdata.money + 10;
+                    userdata.money = userdata.money + 100;
                     userdata.save();
                 }
                 collector.stop(msg.author.username);

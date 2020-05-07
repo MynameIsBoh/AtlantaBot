@@ -12,7 +12,7 @@ class Welcome extends Command {
             dirname: __dirname,
             enabled: true,
             guildOnly: true,
-            aliases: [ "bienvenue" ],
+            aliases: [ "benvenuto" ],
             memberPermissions: [ "MANAGE_GUILD" ],
             botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
             nsfw: false,

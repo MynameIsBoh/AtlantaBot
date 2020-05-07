@@ -15,7 +15,7 @@ class Wedding extends Command {
             dirname: __dirname,
             enabled: true,
             guildOnly: true,
-            aliases: [ "mariage" ],
+            aliases: [ "marry" ],
             memberPermissions: [],
             botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
             nsfw: false,
@@ -84,7 +84,7 @@ class Wedding extends Command {
             }
         });
 
-        collector.on("end", async (collected, accepted) => {
+        collector.on("end", async (collected, ) => {
             // Delete request 
             delete pendings[message.author.id];
             if(accepted === "time"){

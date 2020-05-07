@@ -26,17 +26,17 @@ class Setlang extends Command {
         if(!args[0]){
             return message.channel.send(message.language.get("SETLANG_ERR_LANG"));
         }
-
-        if(args[0] === "french"){
-            data.guild.language = "french";
-            await data.guild.save();
-            return message.channel.send(message.language.get("SETLANG_LANGS")[0]);
-        }
         
         if(args[0] === "english"){
             data.guild.language = "english";
             await data.guild.save();
             return message.channel.send(message.language.get("SETLANG_LANGS")[1]);
+        }
+        
+        if(args[0] === "italiano"){
+            data.guild.language = "italiano";
+            await data.guild.save();
+            return message.channel.send(message.language.get("SETLANG_LANGS")[2]);
         }
         
         return message.channel.send(message.language.get("SETLANG_ERR_LANG"));

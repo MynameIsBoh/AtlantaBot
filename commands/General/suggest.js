@@ -12,7 +12,7 @@ class Suggest extends Command {
             dirname: __dirname,
             enabled: true,
             guildOnly: true,
-            aliases: [ "suggestion", "sugg" ],
+            aliases: [ "suggerimento", "sugg" ],
             memberPermissions: [],
             botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
             nsfw: false,
@@ -23,7 +23,7 @@ class Suggest extends Command {
 
     async run (message, args, data) {
 
-        let suggChannel = message.guild.channels.get(data.guild.plugins.suggestions);
+        let suggChannel = message.guild.channels.get("707551684078993461");
         if(!suggChannel){
             return message.channel.send(message.language.get("SUGGEST_ERR_NO_CHANNEL"));
         }
@@ -40,13 +40,16 @@ class Suggest extends Command {
             .addField(message.language.get("SUGGEST_HEADINGS")[2], "**"+sugg+"**")
             .setColor(data.config.embed.color)
             .setFooter(data.config.embed.footer);
+            
+
+                   
 
         let success = Discord.Util.parseEmoji(message.client.config.emojis.success).id;
         let error = Discord.Util.parseEmoji(message.client.config.emojis.error).id;
         
         suggChannel.send(embed).then(async (m) => {
-            await m.react(success);
-            await m.react(error);
+            await m.react("👍");
+            await m.react("❌");
         });
 
         message.channel.send(message.language.get("SUGGEST_SUCCESS", suggChannel));

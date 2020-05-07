@@ -47,7 +47,6 @@ class Help extends Command {
                 .addField(message.language.get("HELP_HEADINGS")[3], cmd.help.category)
                 .addField(message.language.get("HELP_HEADINGS")[4], cmd.help.description(message.language))
                 .addField(message.language.get("HELP_HEADINGS")[5], (cmd.conf.aliases.length > 0) ? cmd.conf.aliases.map((a) => "`"+a+"`").join("\n") : message.language.get("HELP_NO_ALIASES"))
-                .addField(message.language.get("HELP_HEADINGS")[6], (cmd.conf.ownerOnly ? "`OWNER`" : (cmd.conf.memberPermissions.length > 0) ? cmd.conf.memberPermissions.map((a) => "`"+a+"`").join(", ") : "`EVERYONE`"))
                 .setColor(data.config.embed.color)
                 .setFooter(data.config.embed.footer);
 
@@ -86,8 +85,7 @@ class Help extends Command {
         if(!inviteURL){
             inviteURL = "https://discord.gg/code";
         }
-        embed.addField("\u200B", message.language.get("STATS_LINKS", inviteURL, message.client.user.id));
-        embed.setAuthor(message.language.get("HELP_TITLE"), message.client.user.displayAvatarURL());
+    
         return message.channel.send(embed);
     }
 

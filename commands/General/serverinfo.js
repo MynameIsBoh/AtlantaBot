@@ -43,9 +43,7 @@ class Serverinfo extends Command {
             .addField(message.language.get("SERVERINFO_HEADINGS")[1], message.language.printDate(guild.createdAt), true)
             .addField(message.language.get("SERVERINFO_HEADINGS")[2], message.language.get("SERVERINFO_MEMBERCOUNT", guild.members), true)
             .addField(message.language.get("SERVERINFO_HEADINGS")[4], guild.afkChannel || message.language.get("SERVERINFO_NO_AFK"), true)
-            .addField(message.language.get("SERVERINFO_HEADINGS")[5], guild.id, true)
             .addField(message.language.get("SERVERINFO_HEADINGS")[6], guild.owner, true)
-            .addField(message.language.get("SERVERINFO_HEADINGS")[7], guild.premiumSubscriptionCount || 0, true)
             .addField(message.language.get("SERVERINFO_HEADINGS")[3], message.language.get("SERVERINFO_CHANNELS", guild.channels), true)
             .setColor(data.config.embed.color)
             .setFooter(data.config.embed.footer);

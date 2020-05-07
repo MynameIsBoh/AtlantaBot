@@ -89,11 +89,10 @@ class Poll extends Command {
             let embed = new Discord.MessageEmbed()
                 .setAuthor(message.language.get("POLL_HEADING"))
                 .setColor(data.config.embed.color)
-                .addField(question, message.language.get("POLL_REACT"));
             
             message.channel.send(mention, embed).then(async (m) => {
-                await m.react(emotes[0]);
-                await m.react(emotes[1]);
+               await m.react(:thumbsup:);
+               await m.react(emotes[1]);
             });
         });
 
